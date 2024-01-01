@@ -4,10 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from handlers import router
 
 origins = [
-    "http://localhost:8000",
-    "http://0.0.0.0:8000",
-    "http://localhost:4200",
-    "http://192.168.1.197"
+    "*"
 ]
 
 def get_application() -> FastAPI:
@@ -19,6 +16,7 @@ def get_application() -> FastAPI:
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
+        expose_headers=["Content-Disposition"]
     )
     return application
 
