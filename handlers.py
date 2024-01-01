@@ -12,3 +12,8 @@ def get_event_info(
     req = requests.post(f'https://tickets.afisha.ru/wl/402/api/events/info?lang=ru&event_id={event_id}&user_token={user_token}')
     
     return req.json()
+
+@router.get('/get_events/')
+def get_events():
+    req = requests.get('https://tickets.afisha.ru/wl/402/api/events')
+    return req.json()
