@@ -1,25 +1,21 @@
 from fastapi import APIRouter, Query
 
 from database.models import session, AllEvents
+from database.forms import Event
 
 router = APIRouter()
 
 
 @router.post('/put_events/')
-def put_events(
-        name: str = Query(None),
-        link: str = Query(None),
-        parser: str = Query(None),
-        date: str = Query(None),
-        venue: str = Query(None)
-):
+def put_events(event: Event):
+    print(event.name, event.parser)
 
     new_event = AllEvents(
-        name=name,
-        link=link,
-        parser=parser,
-        date=date,
-        venue=venue
+        name=event.name,
+        link=event.link,
+        parser=event.parser,
+        date=event.date,
+        venue=event.venue
     )
     session.add(new_event)
     session.commit()

@@ -19,8 +19,6 @@ class AllEvents(Base):
     parser = Column(String(255))  # Размер 255 (замените на нужный)
     venue = Column(String(255))
     date = Column(DateTime)
-    average_price = Column(Integer)
-
 
 class Categories(Base):
     __tablename__ = 'categories'
