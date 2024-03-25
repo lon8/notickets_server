@@ -23,4 +23,3 @@ def put_events(
     )
     session.add(new_event)
     session.commit()
-
