@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+import aiomysql
 
 from database.models import session, AllEvents
 from database.forms import Event
@@ -17,7 +18,7 @@ PORT = config('PORT')
 async def connect_to_database():
     return await aiomysql.connect(
         host=HOST,
-        port=PORT,
+        port=int(PORT),
         user=USER,
         password=PASSWORD,
         db=DB,
