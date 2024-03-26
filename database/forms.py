@@ -6,3 +6,6 @@ class Event(BaseModel):
     parser: str
     date: str
     venue: str
+
+class Parser(BaseModel):
+    parser: str
