@@ -4,6 +4,7 @@ import aiomysql
 from database.forms import Event, Parser
 
 from decouple import config
+from modules.logger import logger
 
 router = APIRouter()
 
@@ -36,6 +37,7 @@ async def put_events(event: Event):
     query = f"INSERT INTO all_events (name, link, parser, date, venue) VALUES ('{event.name}', '{event.link}', '{event.parser}', '{event.date}', '{event.venue}')"
 
     conn = await connect_to_database()
+    logger.debug('connection is succesfull')
     try:
         await execute_query(query, conn)
     except Exception as e:
@@ -63,16 +65,15 @@ async def put_events(event: Event):
 
 @router.post("/clear_events/")
 async def clear_events(parser: Parser):
-    async def delete_by_parser(conn, parser_value):
-        # Формируем SQL-запрос для удаления записей
-        query = f"DELETE FROM your_table_name WHERE parser = '{parser_value}'"
+    # Формируем SQL-запрос для удаления записей
+    query = f"DELETE FROM all_events WHERE parser = '{parser.parser}'"
 
-        conn = await connect_to_database()
-        try:
-            await execute_query(query, conn)
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
-        finally:
-            conn.close()
+    conn = await connect_to_database()
+    try:
+        await execute_query(query, conn)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
+    finally:
+        conn.close()
 
     return {"message": "Events clear successfully"}
