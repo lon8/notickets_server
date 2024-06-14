@@ -3,3 +3,5 @@ venv/
 .idea
 .env
 logs/
+.pytest_cache/
+*__init__.py

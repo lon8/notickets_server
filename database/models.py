@@ -17,7 +17,7 @@ class AllEvents(Base):
     name = Column(String(255))  # Размер 255 (замените на нужный)
     link = Column(String(255))  # Размер 255 (замените на нужный)
     parser = Column(String(255))  # Размер 255 (замените на нужный)
-    venue = Column(String(255))
+    venue_id = Column(Integer, ForeignKey('venues.id'))
     date = Column(DateTime)
 
 class Categories(Base):

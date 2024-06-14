@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-# from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 from database.crud import router
 
 
@@ -13,4 +13,4 @@ def get_application() -> FastAPI:
 app = get_application()
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000, log_level="info")
+    uvicorn.run(app, host='0.0.0.0', port=5555, log_level="info")
