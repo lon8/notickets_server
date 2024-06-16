@@ -38,7 +38,7 @@ class Venues(Base):
     __tablename__ = 'venues'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    venue_name = Column(String(255))  # Размер 255 (замените на нужный)
+    name = Column(String(255))  # Размер 255 (замените на нужный)
     description = Column(Text)
 
 
@@ -46,7 +46,7 @@ class Cities(Base):
     __tablename__ = 'cities'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    city_name = Column(String(255))  # Размер 255 (замените на нужный)
+    name = Column(String(255))  # Размер 255 (замените на нужный)
 
 
 class CityVenues(Base):

@@ -1,0 +1,548 @@
+{
+    "1": {
+        "city": "Майкоп",
+        "coordinates": {
+        "latitude": 44.609826,
+        "longitude": 40.100652
+        }
+    },
+    "2": {
+        "city": "Уфа",
+        "coordinates": {
+        "latitude": 54.7388,
+        "longitude": 55.9721
+        }
+    },
+    "3": {
+        "city": "Улан-Удэ",
+        "coordinates": {
+        "latitude": 51.8335,
+        "longitude": 107.584
+        }
+    },
+    "4": {
+        "city": "Горно-Алтайск",
+        "coordinates": {
+        "latitude": 51.9581,
+        "longitude": 85.9603
+        }
+    },
+    "5": {
+        "city": "Махачкала",
+        "coordinates": {
+        "latitude": 42.9849,
+        "longitude": 47.5047
+        }
+    },
+    "6": {
+        "city": "Назрань",
+        "coordinates": {
+        "latitude": 43.2256,
+        "longitude": 44.765
+        }
+    },
+    "7": {
+        "city": "Нальчик",
+        "coordinates": {
+        "latitude": 43.498,
+        "longitude": 43.6122
+        }
+    },
+    "8": {
+        "city": "Элиста",
+        "coordinates": {
+        "latitude": 46.3083,
+        "longitude": 44.2702
+        }
+    },
+    "9": {
+        "city": "Черкесск",
+        "coordinates": {
+        "latitude": 44.2236,
+        "longitude": 42.0578
+        }
+    },
+    "10": {
+        "city": "Петрозаводск",
+        "coordinates": {
+        "latitude": 61.7892,
+        "longitude": 34.3598
+        }
+    },
+    "11": {
+        "city": "Сыктывкар",
+        "coordinates": {
+        "latitude": 61.6688,
+        "longitude": 50.8356
+        }
+    },
+    "12": {
+        "city": "Йошкар-Ола",
+        "coordinates": {
+        "latitude": 56.6388,
+        "longitude": 47.8908
+        }
+    },
+    "13": {
+        "city": "Саранск",
+        "coordinates": {
+        "latitude": 54.1808,
+        "longitude": 45.1869
+        }
+    },
+    "14": {
+        "city": "Якутск",
+        "coordinates": {
+        "latitude": 62.0281,
+        "longitude": 129.7326
+        }
+    },
+    "15": {
+        "city": "Владикавказ",
+        "coordinates": {
+        "latitude": 43.0367,
+        "longitude": 44.6678
+        }
+    },
+    "16": {
+        "city": "Казань",
+        "coordinates": {
+        "latitude": 55.7963,
+        "longitude": 49.1088
+        }
+    },
+    "17": {
+        "city": "Кызыл",
+        "coordinates": {
+        "latitude": 51.7191,
+        "longitude": 94.4377
+        }
+    },
+    "18": {
+        "city": "Ижевск",
+        "coordinates": {
+        "latitude": 56.8527,
+        "longitude": 53.2064
+        }
+    },
+    "19": {
+        "city": "Абакан",
+        "coordinates": {
+        "latitude": 53.7213,
+        "longitude": 91.4437
+        }
+    },
+    "20": {
+        "city": "Грозный",
+        "coordinates": {
+        "latitude": 43.3178,
+        "longitude": 45.6985
+        }
+    },
+    "21": {
+        "city": "Чебоксары",
+        "coordinates": {
+        "latitude": 56.1467,
+        "longitude": 47.2489
+        }
+    },
+    "22": {
+        "city": "Барнаул",
+        "coordinates": {
+        "latitude": 53.3474,
+        "longitude": 83.7767
+        }
+    },
+    "23": {
+        "city": "Краснодар",
+        "coordinates": {
+        "latitude": 45.0355,
+        "longitude": 38.9753
+        }
+    },
+    "24": {
+        "city": "Красноярск",
+        "coordinates": {
+        "latitude": 56.0153,
+        "longitude": 92.8932
+        }
+    },
+    "25": {
+        "city": "Владивосток",
+        "coordinates": {
+        "latitude": 43.1155,
+        "longitude": 131.8855
+        }
+    },
+    "26": {
+        "city": "Ставрополь",
+        "coordinates": {
+        "latitude": 45.0448,
+        "longitude": 41.969
+        }
+    },
+    "27": {
+        "city": "Хабаровск",
+        "coordinates": {
+        "latitude": 48.4827,
+        "longitude": 135.0838
+        }
+    },
+    "28": {
+        "city": "Благовещенск",
+        "coordinates": {
+        "latitude": 50.2906,
+        "longitude": 127.5272
+        }
+    },
+    "29": {
+        "city": "Архангельск",
+        "coordinates": {
+        "latitude": 64.5399,
+        "longitude": 40.5152
+        }
+    },
+    "30": {
+        "city": "Астрахань",
+        "coordinates": {
+        "latitude": 46.3476,
+        "longitude": 48.0336
+        }
+    },
+    "31": {
+        "city": "Белгород",
+        "coordinates": {
+        "latitude": 50.5954,
+        "longitude": 36.5873
+        }
+    },
+    "32": {
+        "city": "Брянск",
+        "coordinates": {
+        "latitude": 53.2521,
+        "longitude": 34.3717
+        }
+    },
+    "33": {
+        "city": "Владимир",
+        "coordinates": {
+        "latitude": 56.1291,
+        "longitude": 40.4066
+        }
+    },
+    "34": {
+        "city": "Волгоград",
+        "coordinates": {
+        "latitude": 48.708,
+        "longitude": 44.514
+        }
+    },
+    "35": {
+        "city": "Вологда",
+        "coordinates": {
+        "latitude": 59.2205,
+        "longitude": 39.8915
+        }
+    },
+    "36": {
+        "city": "Воронеж",
+        "coordinates": {
+        "latitude": 51.6615,
+        "longitude": 39.2003
+        }
+    },
+    "37": {
+        "city": "Иваново",
+        "coordinates": {
+        "latitude": 56.9995,
+        "longitude": 40.9728
+        }
+    },
+    "38": {
+        "city": "Иркутск",
+        "coordinates": {
+        "latitude": 52.2869,
+        "longitude": 104.305
+        }
+    },
+    "39": {
+        "city": "Калининград",
+        "coordinates": {
+        "latitude": 54.7104,
+        "longitude": 20.4522
+        }
+    },
+    "40": {
+        "city": "Калуга",
+        "coordinates": {
+        "latitude": 54.5144,
+        "longitude": 36.2612
+        }
+    },
+    "41": {
+        "city": "Петропавловск-Камчатский",
+        "coordinates": {
+        "latitude": 53.0451,
+        "longitude": 158.6483
+        }
+    },
+    "42": {
+        "city": "Кемерово",
+        "coordinates": {
+        "latitude": 55.3552,
+        "longitude": 86.0867
+        }
+    },
+    "43": {
+        "city": "Киров",
+        "coordinates": {
+        "latitude": 58.6035,
+        "longitude": 49.6675
+        }
+    },
+    "44": {
+        "city": "Кострома",
+        "coordinates": {
+        "latitude": 57.7679,
+        "longitude": 40.9269
+        }
+    },
+    "45": {
+        "city": "Курган",
+        "coordinates": {
+        "latitude": 55.441,
+        "longitude": 65.3411
+        }
+    },
+    "46": {
+        "city": "Курск",
+        "coordinates": {
+        "latitude": 51.7303,
+        "longitude": 36.1926
+        }
+    },
+    "47": {
+        "city": "Санкт-Петербург",
+        "coordinates": {
+        "latitude": 59.9343,
+        "longitude": 30.3351
+        }
+    },
+    "48": {
+        "city": "Липецк",
+        "coordinates": {
+        "latitude": 52.6109,
+        "longitude": 39.5948
+        }
+    },
+    "49": {
+        "city": "Магадан",
+        "coordinates": {
+        "latitude": 59.5616,
+        "longitude": 150.8113
+        }
+    },
+    "50": {
+        "city": "Красногорск",
+        "coordinates": {
+        "latitude": 55.8236,
+        "longitude": 37.3291
+        }
+    },
+    "51": {
+        "city": "Москва",
+        "coordinates": {
+        "latitude": 55.7558,
+        "longitude": 37.6173
+        }
+    },
+    "52": {
+        "city": "Мурманск",
+        "coordinates": {
+        "latitude": 68.9733,
+        "longitude": 33.075
+        }
+    },
+    "53": {
+        "city": "Нижний Новгород",
+        "coordinates": {
+        "latitude": 56.3269,
+        "longitude": 44.0059
+        }
+    },
+    "54": {
+        "city": "Великий Новгород",
+        "coordinates": {
+        "latitude": 58.5215,
+        "longitude": 31.2755
+        }
+    },
+    "55": {
+        "city": "Новосибирск",
+        "coordinates": {
+        "latitude": 55.0084,
+        "longitude": 82.9357
+        }
+    },
+    "56": {
+        "city": "Омск",
+        "coordinates": {
+        "latitude": 54.9885,
+        "longitude": 73.3242
+        }
+    },
+    "57": {
+        "city": "Оренбург",
+        "coordinates": {
+        "latitude": 51.7875,
+        "longitude": 55.101
+        }
+    },
+    "58": {
+        "city": "Орёл",
+        "coordinates": {
+        "latitude": 52.9702,
+        "longitude": 36.064
+        }
+    },
+    "59": {
+        "city": "Пенза",
+        "coordinates": {
+        "latitude": 53.1951,
+        "longitude": 45.018
+        }
+    },
+    "60": {
+        "city": "Пермь",
+        "coordinates": {
+        "latitude": 58.0105,
+        "longitude": 56.2294
+        }
+    },
+    "61": {
+        "city": "Псков",
+        "coordinates": {
+        "latitude": 57.8194,
+        "longitude": 28.331
+        }
+    },
+    "62": {
+        "city": "Ростов-на-Дону",
+        "coordinates": {
+        "latitude": 47.2357,
+        "longitude": 39.7015
+        }
+    },
+    "63": {
+        "city": "Рязань",
+        "coordinates": {
+        "latitude": 54.6296,
+        "longitude": 39.7426
+        }
+    },
+    "64": {
+        "city": "Самара",
+        "coordinates": {
+        "latitude": 53.2415,
+        "longitude": 50.2212
+        }
+    },
+    "65": {
+        "city": "Саратов",
+        "coordinates": {
+        "latitude": 51.5331,
+        "longitude": 46.0342
+        }
+    },
+    "66": {
+        "city": "Южно-Сахалинск",
+        "coordinates": {
+        "latitude": 46.9592,
+        "longitude": 142.738
+        }
+    },
+    "67": {
+        "city": "Екатеринбург",
+        "coordinates": {
+        "latitude": 56.8389,
+        "longitude": 60.6057
+        }
+    },
+    "68": {
+        "city": "Смоленск",
+        "coordinates": {
+        "latitude": 54.7826,
+        "longitude": 32.0454
+        }
+    },
+    "69": {
+        "city": "Тамбов",
+        "coordinates": {
+        "latitude": 52.7213,
+        "longitude": 41.4523
+        }
+    },
+    "70": {
+        "city": "Тверь",
+        "coordinates": {
+        "latitude": 56.8585,
+        "longitude": 35.9119
+        }
+    },
+    "71": {
+        "city": "Томск",
+        "coordinates": {
+        "latitude": 56.4847,
+        "longitude": 84.9487
+        }
+    },
+    "72": {
+        "city": "Тула",
+        "coordinates": {
+        "latitude": 54.1921,
+        "longitude": 37.6156
+        }
+    },
+    "73": {
+        "city": "Тюмень",
+        "coordinates": {
+        "latitude": 57.153,
+        "longitude": 65.5343
+        }
+    },
+    "74": {
+        "city": "Ульяновск",
+        "coordinates": {
+        "latitude": 54.3142,
+        "longitude": 48.4031
+        }
+    },
+    "75": {
+        "city": "Челябинск",
+        "coordinates": {
+        "latitude": 55.1644,
+        "longitude": 61.4368
+        }
+    },
+    "76": {
+        "city": "Ярославль",
+        "coordinates": {
+        "latitude": 57.6261,
+        "longitude": 39.8845
+        }
+    },
+    "77": {
+        "city": "Севастополь",
+        "coordinates": {
+        "latitude": 44.6167,
+        "longitude": 33.5254
+        }
+    },
+    "78": {
+        "city": "Симферополь",
+        "coordinates": {
+        "latitude": 44.9482,
+        "longitude": 34.1001
+        }
+    }
+}
