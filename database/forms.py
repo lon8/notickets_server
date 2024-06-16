@@ -8,11 +8,12 @@ class Event(BaseModel):
     venue_id: int
 
 class EventResponse(BaseModel):
+    id: int
     name: str
     link: str
     parser: str
     date: str
-    venue: str
+    venue_id: int
 
 class RegionRequest(BaseModel):
     region: int
