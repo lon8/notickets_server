@@ -10,9 +10,12 @@ router = APIRouter()
 
 HOST = config('HOST')
 DB = config('DB')
-USER = config('USER')
+USER = config('LOGIN')
 PASSWORD = config('PASSWORD')
 PORT = config('PORT')
+
+print(USER)
+
 
 async def connect_to_database():
     return await aiomysql.connect(
@@ -92,7 +95,7 @@ async def clear_events(parser: Parser):
 #####################################
 
 
-@router.post("/get_all_events/")
+@router.post("/get_city_events/")
 async def get_events(request: RegionRequest):
     query = "SELECT id, name, link, parser, date, venue_id FROM all_events"
 
@@ -104,8 +107,9 @@ async def get_events(request: RegionRequest):
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             await cursor.execute(query)
             rows = await cursor.fetchall()
-            
+            print(rows)
             events = [(EventResponse(
+                id=row["id"],
                 name=row['name'],
                 link=row['link'],
                 parser=row['parser'],
@@ -181,10 +185,8 @@ async def get_cities():
                 
                 cities_dict[city_id] = {
                     "city": city_name,
-                    "coordinates": {
-                        "latitude": latitude,
-                        "longitude": longitude
-                    }
+                    "latitude": latitude,
+                    "longitude": longitude
                 }
 
     except aiomysql.MySQLError as e:
