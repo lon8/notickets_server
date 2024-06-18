@@ -6,6 +6,7 @@ class Event(BaseModel):
     parser: str
     date: str
     venue_id: int
+    image_links: str
 
 class EventResponse(BaseModel):
     id: int
@@ -14,6 +15,7 @@ class EventResponse(BaseModel):
     parser: str
     date: str
     venue_id: int
+    image_links: list[str]
 
 class RegionRequest(BaseModel):
     region: int

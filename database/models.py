@@ -1,14 +1,13 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, ForeignKey, MetaData
+import json
+from sqlalchemy import create_engine, Column, Integer, Float, String, Text, DateTime, ForeignKey, MetaData
 from sqlalchemy.orm import declarative_base, sessionmaker
 from decouple import config
-
 
 Base = declarative_base(metadata=MetaData())
 
 DATABASE_LINK = config('DATABASE_LINK')
 
 engine = create_engine(DATABASE_LINK)
-
 
 class AllEvents(Base):
     __tablename__ = 'all_events'
@@ -19,6 +18,7 @@ class AllEvents(Base):
     parser = Column(String(255))  # Размер 255 (замените на нужный)
     venue_id = Column(Integer, ForeignKey('venues.id'))
     date = Column(DateTime)
+    image_link  = Column(String(255))
 
 class Categories(Base):
     __tablename__ = 'categories'
@@ -47,6 +47,8 @@ class Cities(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(255))  # Размер 255 (замените на нужный)
+    latitude = Column(Float)
+    longitude  = Column(Float)
 
 
 class CityVenues(Base):
@@ -81,6 +83,26 @@ class EventSites(Base):
 
 Session = sessionmaker(bind=engine)
 
+metadata = Base.metadata.create_all(bind=engine)
+
 session = Session()
 
-metadata = Base.metadata.create_all(bind=engine)
+# Чтение JSON-файла
+with open('temp/cities_full.json') as json_file:
+    cities = json.load(json_file)
+
+# Вставка данных в таблицу
+for city_id, city_info in cities.items():
+    city = Cities(
+        id=int(city_id),
+        name=city_info['city'],
+        latitude=city_info['coordinates']['latitude'],
+        longitude=city_info['coordinates']['longitude']
+    )
+    session.add(city)
+
+# Подтверждение изменений
+session.commit()
+
+# Закрытие сессии
+session.close()

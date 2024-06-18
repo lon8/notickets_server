@@ -14,8 +14,6 @@ USER = config('LOGIN')
 PASSWORD = config('PASSWORD')
 PORT = config('PORT')
 
-print(USER)
-
 
 async def connect_to_database():
     return await aiomysql.connect(
@@ -58,8 +56,8 @@ async def create_venue(venue: VenueRequest):
 
 @router.post("/put_event/")
 async def put_events(event: Event):
-    query = "INSERT INTO all_events (name, link, parser, date, venue_id) VALUES (%s, %s, %s, %s, %s)"
-    params = (event.name, event.link, event.parser, event.date, event.venue_id)
+    query = "INSERT INTO all_events (name, link, parser, date, venue_id, image_link) VALUES (%s, %s, %s, %s, %s, %s)"
+    params = (event.name, event.link, event.parser, event.date, event.venue_id, event.image_links)
 
     conn = await connect_to_database()
     logger.debug('Connection is successful')
@@ -97,7 +95,7 @@ async def clear_events(parser: Parser):
 
 @router.post("/get_city_events/")
 async def get_events(request: RegionRequest):
-    query = "SELECT id, name, link, parser, date, venue_id FROM all_events"
+    query = "SELECT id, name, link, parser, date, venue_id, image_link FROM all_events"
 
     events = []
     conn = None
@@ -107,14 +105,14 @@ async def get_events(request: RegionRequest):
         async with conn.cursor(aiomysql.DictCursor) as cursor:
             await cursor.execute(query)
             rows = await cursor.fetchall()
-            print(rows)
             events = [(EventResponse(
                 id=row["id"],
                 name=row['name'],
                 link=row['link'],
                 parser=row['parser'],
                 date=row['date'].strftime('%Y-%m-%d %H:%M:%S'),
-                venue_id=row['venue_id']
+                venue_id=row['venue_id'],
+                image_links=[row['image_link']]
             )) for row in rows]
 
     except aiomysql.MySQLError as e:
@@ -131,7 +129,7 @@ async def get_events(request: RegionRequest):
 
 @router.post("/get_events_by_venue/")
 async def get_events_by_venue(payload: VenuePayload):
-    query = "SELECT id, name, link, parser, date, venue_id FROM all_events WHERE venue_id = %s"
+    query = "SELECT id, name, link, parser, date, venue_id, image_link FROM all_events WHERE venue_id  =  %s"
     params = (payload.venue_id, )
 
     events = []
@@ -148,7 +146,8 @@ async def get_events_by_venue(payload: VenuePayload):
                 link=row['link'],
                 parser=row['parser'],
                 date=row['date'].strftime('%Y-%m-%d %H:%M:%S'),
-                venue_id=row['venue_id']
+                venue_id=row['venue_id'],
+                image_links=[row['image_link']]
             )) for row in rows]
 
     except aiomysql.MySQLError as e:
@@ -165,15 +164,14 @@ async def get_events_by_venue(payload: VenuePayload):
 
 @router.get('/get_cities/')
 async def get_cities():
-    query = "SELECT name FROM cities"
-
-    cities = []
+    query = "SELECT id, name, latitude, longitude FROM cities"
+    
     try:
         conn = await connect_to_database()
 
         async with conn.cursor() as cursor:
 
-            await cursor.execute("SELECT id, name, latitude, longitude FROM cities")
+            await cursor.execute(query)
             rows = await cursor.fetchall()
             
             cities_dict = {}
@@ -203,15 +201,14 @@ async def get_cities():
     
 @router.get('/get_venues/')
 async def get_cities():
-    query = "SELECT name FROM venues"
+    query = "SELECT id, name FROM venues"
 
-    venues = []
     try:
         conn = await connect_to_database()
 
         async with conn.cursor() as cursor:
 
-            await cursor.execute("SELECT id, name FROM venues")
+            await cursor.execute(query)
             rows = await cursor.fetchall()
             
             # Формируем результат в нужном формате
