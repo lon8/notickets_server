@@ -4,7 +4,7 @@ import aiomysql
 from database.forms import Event, Parser, RegionRequest, EventResponse, VenuePayload, VenueRequest
 
 from decouple import config
-from modules.logger import logger
+from loguru import logger
 
 router = APIRouter()
 
