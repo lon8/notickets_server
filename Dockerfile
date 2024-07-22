@@ -17,4 +17,4 @@ COPY . .
 CMD ["python", "main.py"]
 
 # Открываем порт 8000
-EXPOSE 5555
+EXPOSE 8000
