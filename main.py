@@ -7,7 +7,7 @@ from modules.logger import configure_logger
 
 def get_application() -> FastAPI:
     application = FastAPI()
-    application.include_router(router)
+    application.include_router(router, prefix="/api")
     return application
 
 
