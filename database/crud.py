@@ -34,7 +34,7 @@ async def execute_query(query, params, conn):
 ####   ROUTERS FOR PARSERS       ####
 #####################################
 
-@router.post("/api/create_venue/")
+@router.post("/api/create_venue")
 async def create_venue(venue: VenueRequest):
     query = "INSERT INTO venues (name) VALUES (%s)"
     params = (venue.venue, )
@@ -54,7 +54,7 @@ async def create_venue(venue: VenueRequest):
     }
 
 
-@router.post("/api/put_event/")
+@router.post("/api/put_event")
 async def put_events(event: Event):
     query = "INSERT INTO all_events (name, link, parser, date, venue_id, image_link) VALUES (%s, %s, %s, %s, %s, %s)"
     params = (event.name, event.link, event.parser, event.date, event.venue_id, event.image_links)
@@ -71,7 +71,7 @@ async def put_events(event: Event):
 
     return {"message": "Event added successfully"}
 
-@router.post("/api/clear_events/")
+@router.post("/api/clear_events")
 async def clear_events(parser: Parser):
     query = "DELETE FROM all_events WHERE parser = %s"
     params = (parser.parser,)
@@ -93,7 +93,7 @@ async def clear_events(parser: Parser):
 #####################################
 
 
-@router.post("/api/get_city_events/")
+@router.post("/api/get_city_events")
 async def get_events(request: RegionRequest):
     query = "SELECT id, name, link, parser, date, venue_id, image_link FROM all_events"
 
@@ -127,7 +127,7 @@ async def get_events(request: RegionRequest):
     
     return events
 
-@router.post("/api/get_events_by_venue/")
+@router.post("/api/get_events_by_venue")
 async def get_events_by_venue(payload: VenuePayload):
     query = "SELECT id, name, link, parser, date, venue_id, image_link FROM all_events WHERE venue_id  =  %s"
     params = (payload.venue_id, )
@@ -162,7 +162,7 @@ async def get_events_by_venue(payload: VenuePayload):
     
     return events
 
-@router.get('/api/get_cities/')
+@router.get('/api/get_cities')
 async def get_cities():
     query = "SELECT id, name, latitude, longitude FROM cities"
     
@@ -199,7 +199,7 @@ async def get_cities():
 
     return cities_dict
     
-@router.get('/api/get_venues/')
+@router.get('/api/get_venues')
 async def get_cities():
     query = "SELECT id, name FROM venues"
 
