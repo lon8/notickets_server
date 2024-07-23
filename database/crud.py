@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 import aiomysql
 
 from database.forms import Event, Parser, RegionRequest, EventResponse, VenuePayload, VenueRequest
+from database.ai.venues import find_or_create_venue
 
 from decouple import config
 from loguru import logger
@@ -56,8 +57,11 @@ async def create_venue(venue: VenueRequest):
 
 @router.post("/api/put_event")
 async def put_events(event: Event):
+    
+    venue_id = await find_or_create_venue(event.venue)
+    
     query = "INSERT INTO all_events (name, link, parser, date, venue_id, image_link) VALUES (%s, %s, %s, %s, %s, %s)"
-    params = (event.name, event.link, event.parser, event.date, event.venue_id, event.image_links)
+    params = (event.name, event.link, event.parser, event.date, venue_id, event.image_links)
 
     conn = await connect_to_database()
     logger.debug('Connection is successful')
@@ -200,7 +204,7 @@ async def get_cities():
     return cities_dict
     
 @router.get('/api/get_venues')
-async def get_cities():
+async def get_venues():
     query = "SELECT id, name FROM venues"
 
     try:

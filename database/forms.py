@@ -5,7 +5,7 @@ class Event(BaseModel):
     link: str
     parser: str
     date: str
-    venue_id: int
+    venue: str
     image_links: str
 
 class EventResponse(BaseModel):
