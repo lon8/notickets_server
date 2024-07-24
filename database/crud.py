@@ -22,7 +22,8 @@ async def connect_to_database():
         user=USER,
         password=PASSWORD,
         db=DB,
-        autocommit=True
+        autocommit=True,
+        charset='utf8mb4'
     )
 
 async def execute_query(query, params, conn):
