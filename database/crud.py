@@ -35,26 +35,6 @@ async def execute_query(query, params, conn):
 ####   ROUTERS FOR PARSERS       ####
 #####################################
 
-@router.post("/api/create_venue")
-async def create_venue(venue: VenueRequest):
-    query = "INSERT INTO venues (name) VALUES (%s)"
-    params = (venue.venue, )
-    
-    conn = await connect_to_database()
-    try:
-        async with conn.cursor(aiomysql.DictCursor) as cursor:
-            await cursor.execute(query, params)
-            await conn.commit()
-            lastrowid = cursor.lastrowid
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    
-    return {
-        "message": "OK",
-        "venue_id": lastrowid
-    }
-
-
 @router.post("/api/put_event")
 async def put_events(event: Event):
     

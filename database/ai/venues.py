@@ -55,9 +55,7 @@ async def get_venues():
 
 async def get_venue_names_from_database():
     
-    r = get_venues()
-    data = r.json()
-    
+    data = await get_venues()
     result = list(data.values())
 
     return result
