@@ -37,15 +37,30 @@ async def execute_query(query, params, conn):
 
 @router.post("/api/put_event")
 async def put_events(event: Event):
-    
     venue_id = await find_or_create_venue(event.venue)
-    
-    query = "INSERT INTO all_events (name, link, parser, date, venue_id, image_link) VALUES (%s, %s, %s, %s, %s, %s)"
-    params = (event.name, event.link, event.parser, event.date, venue_id, event.image_links)
+
+    check_query = """
+        SELECT COUNT(*) FROM all_events
+        WHERE name = %s AND link = %s AND parser = %s AND date = %s AND venue_id = %s
+    """
+    check_params = (event.name, event.link, event.parser, event.date, venue_id)
 
     conn = await connect_to_database()
     logger.debug('Connection is successful')
+
     try:
+        result = await execute_query(check_query, check_params, conn)
+        count = result[0][0]
+        if count > 0:
+            logger.info(f"Event already exists")
+            return {"message": "Event already exists"}
+
+        query = """
+            INSERT INTO all_events (name, link, parser, date, venue_id, image_link)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        params = (event.name, event.link, event.parser, event.date, venue_id, event.image_links)
+
         await execute_query(query, params, conn)
     except Exception as e:
         logger.error(f"An error occurred: {e}")
@@ -55,21 +70,21 @@ async def put_events(event: Event):
 
     return {"message": "Event added successfully"}
 
-@router.post("/api/clear_events")
-async def clear_events(parser: Parser):
-    query = "DELETE FROM all_events WHERE parser = %s"
-    params = (parser.parser,)
+# @router.post("/api/clear_events")
+# async def clear_events(parser: Parser):
+#     query = "DELETE FROM all_events WHERE parser = %s"
+#     params = (parser.parser,)
 
-    conn = await connect_to_database()
-    try:
-        await execute_query(query, params, conn)
-    except Exception as e:
-        logger.error(f"An error occurred: {e}")
-        raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
-    finally:
-        conn.close()
+#     conn = await connect_to_database()
+#     try:
+#         await execute_query(query, params, conn)
+#     except Exception as e:
+#         logger.error(f"An error occurred: {e}")
+#         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
+#     finally:
+#         conn.close()
 
-    return {"message": "Events cleared successfully"}
+#     return {"message": "Events cleared successfully"}
 
 
 #####################################
