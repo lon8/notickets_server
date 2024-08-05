@@ -63,7 +63,7 @@ async def get_venue_names_from_database():
 
 async def create_venue(venue):
     query = "INSERT INTO venues (name) VALUES (%s)"
-    params = (venue.venue, )
+    params = (venue, )
     
     conn = await connect_to_database()
     try:
@@ -74,10 +74,7 @@ async def create_venue(venue):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-    return {
-        "message": "OK",
-        "venue_id": lastrowid
-    }
+    return lastrowid
         
 # Функция для поиска или создания площадки
 async def find_or_create_venue(input_venue_name: str) -> int:
