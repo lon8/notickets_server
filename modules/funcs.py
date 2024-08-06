@@ -30,3 +30,6 @@ def run_periodicaly(interval :int, func: Callable [[], None]) -> None:
     thread = threading.Thread(target=wrapper)
     thread.daemon = True
     thread.start()
+    
+async def start_tasks(interval: int, func: Callable[[], None]) -> None:
+    asyncio.create_task(periodic_task(interval, func))

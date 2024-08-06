@@ -26,9 +26,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-async def start_tasks(interval: int, func: Callable[[], None]) -> None:
-    asyncio.create_task(periodic_task(interval, func))
-
 async def main():
     # interval = 300  # Интервал в секундах (5 минут)
     

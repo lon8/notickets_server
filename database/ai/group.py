@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import DBSCAN
 import asyncio
 from decouple import config
+from loguru import logger
 
 async def load_data():
     conn = await aiomysql.connect(host=config('HOST'), port=3306,
@@ -68,8 +69,12 @@ async def run_clustering():
     venue_ids = [row[2] for row in data]
 
     # Шаг 2: Векторизация данных (только names)
-    tfidf_matrix = vectorize_data(names)
-
+    try:
+        tfidf_matrix = vectorize_data(names)
+    except:
+        logger.warning('Skip this clustering session. Database is empty')
+        engine.close()
+        return
     # Шаг 3: Кластеризация данных
     clusters = cluster_data(tfidf_matrix)
 
