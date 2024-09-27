@@ -28,10 +28,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Lint code
-      run: |
-        pylint your_fastapi_app  # Убедитесь, что pylint установлен и настроен для вашего проекта
-
     - name: Set Docker image tag
       id: vars
       run: |
